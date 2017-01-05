@@ -30,6 +30,14 @@ To scrape all the user comments from the posts, create a CSV using either of the
 
 Keep in mind that large pages such as CNN have *millions* of comments, so be careful! (scraping throughput is approximately 87k comments/hour)
 
+### Scrape Conversations Form Your Page
+
+The Page data scraper is implemented as a Python 2.7 script in `get_fb_conversations_from_fb_page.py`, fill in the [page_access_token](https://developers.facebook.com/tools/explorer/?method=GET&path=%3Cyourpage%3E%2Fposts&version=v2.8) and the Page ID of the Facebook Page you have access too and want to scrape at the beginning of the file. Then run the script by `cd` into the directory containing the script, then running `python get_fb_conversations_from_fb_page.py`.
+
+### Scrape Messages From Page conversations
+
+To scrape all the messages from the conversations, create a CSV using either of the above scripts, then run the `get_fb_messages_from_fb_page.py` script, specifying the Page as the `file_id`. and add page access_token [This might help](https://developers.facebook.com/tools/explorer/?method=GET&path=%3Cyourpage%3E%2Fposts&version=v2.8).
+
 ## Privacy
 
 This scraper can only scrape public Facebook data which is available to anyone, even those who are not logged into Facebook. No personally-identifiable data is collected in the Page variant; the Group variant does collect the name of the author of the post, but that data is also public to non-logged-in users. Additionally, the script only uses officially-documented Facebook API endpoints without circumventing any rate-limits.
@@ -47,6 +55,8 @@ For more information on how the script was originally created, and some tips on 
 [Peeter Tintis](https://github.com/Digitaalhumanitaaria), whose [fork](https://github.com/Digitaalhumanitaaria/facebook-page-post-scraper/blob/master/get_fb_posts_fb_page.py) of this repo implements code for finding separate reaction counts per [this Stack Overflow answer](http://stackoverflow.com/a/37239851).
 
 [Marco Goldin](https://github.com/marcogoldin) for the Python 3.5 fork.
+
+[Ali Hasan](https://github.com/devalih) for page messages scripts.
 
 ## License
 
